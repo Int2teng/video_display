@@ -2,53 +2,50 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>视频播放</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    
+    <title>视频演示</title>
     <style>
-        /* 页面基础样式：垂直居中展示 */
         body {
             margin: 0;
             padding: 0;
+            background-color: #000;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #000; /* 黑色背景更具沉浸感 */
-            font-family: -apple-system, sans-serif;
         }
-
-        .container {
+        .video-box {
             width: 100%;
-            max-width: 900px;
-            padding: 10px;
-            box-sizing: border-box;
+            max-width: 100%;
         }
-
-        /* 视频响应式容器 */
         video {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            outline: none;
-        }
-
-        .title {
-            color: #fff;
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            font-weight: 300;
+            display: block;
+            object-fit: contain; /* 确保视频比例正确 */
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="title">视频演示</div>
-    <video controls playsinline preload="metadata">
-        <source src="video1.mp4" type="video/mp4">
-        您的浏览器不支持 HTML5 视频播放。
+<div class="video-box">
+    <video 
+        id="mainVideo"
+        controls 
+        preload="auto"
+        playsinline 
+        webkit-playsinline="true" 
+        x5-video-player-type="h5-page"
+        x5-video-orientation="portrait"
+        poster=""> <source src="video1.mp4" type="video/mp4">
+        您的浏览器不支持播放该视频。
     </video>
 </div>
 
